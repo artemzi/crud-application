@@ -1,0 +1,38 @@
+HELP.md
+/target/
+public-site-backend/build
+!.mvn/wrapper/maven-wrapper.jar
+supervisor-backend/src/main/resources/public/*
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+/build/
+
+.gradle/
+client-api/build/
+core/build/
+gradle/
+gradlew
+gradlew.bat
+
+### Local developement setup exclude ###
+docker/data/db/**

@@ -1,0 +1,28 @@
+version: "3.2"
+
+networks:
+  dev_network:
+    external:
+      name: "dev_network"
+
+services:
+  mysql:
+    image: mysql:5.7
+    hostname: "mysql"
+    container_name: mysql
+    networks:
+      dev_network:
+        ipv4_address: 172.18.0.4
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      TZ: Europe/Moscow
+    ports:
+      - "3606:3306"
+    labels:
+      NAME: "mysql"
+    volumes:
+      - ./docker/data/db:/var/lib/mysql
+      - ./docker/data/mysql/my.cnf:/etc/mysql/my.cnf

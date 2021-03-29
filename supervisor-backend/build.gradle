@@ -1,0 +1,19 @@
+dependencies {
+    compile 'org.flywaydb:flyway-core:6.0.8'
+
+    compile group: 'org.jetbrains', name: 'annotations', version: '15.0'
+}
+
+task copyAdmin(type: Copy, 'dependsOn': [":supervisor-frontend:buildAdmin"]) {
+    from "$projectDir/../supervisor-frontend/build"
+    into "$projectDir/src/main/resources/public"
+}
+
+processResources.dependsOn copyAdmin
+
+group 'com.artemzi.backend'
+description = 'Supervisor backend'
+
+springBoot {
+    buildInfo()
+}
