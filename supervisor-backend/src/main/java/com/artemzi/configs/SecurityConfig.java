@@ -13,6 +13,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .cors().and()
                 .authorizeRequests()
+                .antMatchers("/api/employee/clean").hasRole("USER")
                 .anyRequest().permitAll();
     }
 }
