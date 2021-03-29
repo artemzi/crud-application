@@ -33,7 +33,7 @@ public class EmployeeService {
 
     public Employee update(EmployeeDto employeeDto) {
         Optional<Employee> existed = employeeRepository.findById(employeeDto.getId());
-        if (existed.isEmpty()) {
+        if (!existed.isPresent()) {
             throw new RestException("Сотрудник не найден");
         }
 
